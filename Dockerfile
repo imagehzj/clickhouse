@@ -21,11 +21,7 @@ rm -rf clickhouse-client-21.8.5.7.tgz && \
 rm -rf clickhouse-server-21.8.5.7.tgz && \
 chown -R clickhouse:clickhouse /opt/sh/clickhouse && \
 chown -R /etc/clickhouse-server && \
-chown -R /etc/clickhouse-client && \
-echo "alias ll='ls -al'" >> /etc/bashrc && \
-echo "alias ..='cd ..'" >> /etc/bashrc && \
-echo "alias ...='cd ../..'" >> /etc/bashrc && \
-echo "alias tailf='tail -f'" >> /etc/bashrc
+chown -R /etc/clickhouse-client
 
 WORKDIR /opt/sh/clickhouse
 
