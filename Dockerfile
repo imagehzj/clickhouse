@@ -4,8 +4,6 @@ LABEL maintainer="shoothzj@gmail.com"
 
 WORKDIR /opt/sh
 
-ENV CLICKHOUSE_HOME /opt/sh/clickhouse
-
 RUN mkdir -p /opt/sh/clickhouse/common-static && \
 mkdir -p /opt/sh/clickhouse/client && \
 mkdir -p /opt/sh/clickhouse/server && \
@@ -20,6 +18,15 @@ tar -xf clickhouse-server-21.8.5.7.tgz -C /opt/sh/clickhouse/server --strip-comp
 /opt/sh/clickhouse/server/install/doinst.sh && \
 rm -rf clickhouse-common-static-21.8.5.7.tgz && \
 rm -rf clickhouse-client-21.8.5.7.tgz && \
-rm -rf clickhouse-server-21.8.5.7.tgz
+rm -rf clickhouse-server-21.8.5.7.tgz && \
+chown -R clickhouse:clickhouse /opt/sh/clickhouse && \
+chown -R /etc/clickhouse-server && \
+chown -R /etc/clickhouse-client && \
+echo "alias ll='ls -al'" >> /etc/bashrc && \
+echo "alias ..='cd ..'" >> /etc/bashrc && \
+echo "alias ...='cd ../..'" >> /etc/bashrc && \
+echo "alias tailf='tail -f'" >> /etc/bashrc
 
 WORKDIR /opt/sh/clickhouse
+
+USER clickhouse
