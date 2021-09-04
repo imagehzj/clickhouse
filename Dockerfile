@@ -20,8 +20,8 @@ rm -rf clickhouse-common-static-21.8.5.7.tgz && \
 rm -rf clickhouse-client-21.8.5.7.tgz && \
 rm -rf clickhouse-server-21.8.5.7.tgz && \
 chown -R clickhouse:clickhouse /opt/sh/clickhouse && \
-chown -R /etc/clickhouse-server && \
-chown -R /etc/clickhouse-client
+chown -R clickhouse:clickhouse /etc/clickhouse-server && \
+chown -R clickhouse:clickhouse /etc/clickhouse-client
 
 WORKDIR /opt/sh/clickhouse
 
